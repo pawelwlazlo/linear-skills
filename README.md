@@ -1,13 +1,13 @@
-# nerd4rent marketplace
+# linear-skills
 
-Claude Code plugin marketplace by [Paweł Wlazło](https://github.com/pawelwlazlo). Skills for working with Linear and migrating issues from GitLab.
+A Claude Code plugin marketplace by [Paweł Wlazło](https://github.com/pawelwlazlo) — skills for working with Linear and migrating issues into it.
 
 ## Installation
 
 ```
-/plugin marketplace add pawelwlazlo/nerd4rent-marketplace
-/plugin install linear-cli@nerd4rent
-/plugin install gitlab-to-linear@nerd4rent
+/plugin marketplace add pawelwlazlo/linear-skills
+/plugin install linear-cli@linear-skills
+/plugin install gitlab-to-linear@linear-skills
 ```
 
 ## Plugins
@@ -29,7 +29,7 @@ Linear ships an MCP server, but in practice it bloats the agent's context with h
 ## Layout
 
 ```
-nerd4rent-marketplace/
+linear-skills/
 ├── .claude-plugin/
 │   └── marketplace.json        # marketplace catalog
 ├── plugins/
