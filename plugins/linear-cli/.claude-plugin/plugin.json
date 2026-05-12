@@ -1,0 +1,12 @@
+{
+  "name": "linear-cli",
+  "version": "1.0.0",
+  "description": "Complete command reference for the `linear` CLI v2.0.0. Loads BEFORE running any `linear` command so the agent doesn't have to call `--help` or guess parameters.",
+  "author": {
+    "name": "Paweł Wlazło",
+    "email": "pawel@nerd4rent.io"
+  },
+  "repository": "https://github.com/pawelwlazlo/nerd4rent-marketplace",
+  "license": "MIT",
+  "keywords": ["linear", "cli", "issues", "project-management"]
+}

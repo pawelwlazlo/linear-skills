@@ -1,0 +1,12 @@
+{
+  "name": "gitlab-to-linear",
+  "version": "1.0.0",
+  "description": "Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, assignee, and a backlink to the original GitLab issue.",
+  "author": {
+    "name": "Paweł Wlazło",
+    "email": "pawel@nerd4rent.io"
+  },
+  "repository": "https://github.com/pawelwlazlo/nerd4rent-marketplace",
+  "license": "MIT",
+  "keywords": ["gitlab", "linear", "issues", "migration", "import"]
+}

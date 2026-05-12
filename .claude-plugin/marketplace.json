@@ -1,0 +1,26 @@
+{
+  "name": "nerd4rent",
+  "owner": {
+    "name": "Paweł Wlazło",
+    "email": "pawel@nerd4rent.io",
+    "url": "https://github.com/pawelwlazlo"
+  },
+  "plugins": [
+    {
+      "name": "linear-cli",
+      "source": "./plugins/linear-cli",
+      "description": "Complete command reference for the `linear` CLI v2.0.0. Loads BEFORE running any `linear` command so the agent doesn't have to call `--help` or guess parameters.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["linear", "cli", "issues", "project-management"]
+    },
+    {
+      "name": "gitlab-to-linear",
+      "source": "./plugins/gitlab-to-linear",
+      "description": "Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, assignee, and a backlink to the original GitLab issue.",
+      "version": "1.0.0",
+      "category": "migration",
+      "tags": ["gitlab", "linear", "issues", "migration"]
+    }
+  ]
+}
