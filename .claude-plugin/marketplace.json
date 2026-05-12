@@ -18,7 +18,7 @@
       "name": "gitlab-to-linear",
       "source": "./plugins/gitlab-to-linear",
       "description": "Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, assignee, and a backlink to the original GitLab issue.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "migration",
       "tags": ["gitlab", "linear", "issues", "migration"]
     }

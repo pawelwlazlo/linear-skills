@@ -1,6 +1,6 @@
 ---
 name: gitlab-to-linear
-description: Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, and a backlink to the original GitLab issue. Use this skill whenever the user says "import GitLab issues to Linear", "sync GitLab issues", "replicate issues from GitLab", "pobierz issues z gitlab i dodaj do linear", "zreplikuj issues z gitlab", or anything that involves copying/migrating issues between GitLab and Linear — even if they phrase it casually or in Polish. Also trigger when the user is in a git repo with a GitLab remote and asks to bring issues into Linear.
+description: Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, assignee, and a backlink to the original GitLab issue. Use this skill whenever the user wants to import, sync, replicate, copy, or migrate issues from GitLab to Linear. Also trigger when the user is in a git repo with a GitLab remote and asks to bring issues into Linear.
 ---
 
 # GitLab → Linear Issue Importer
@@ -26,18 +26,18 @@ If output contains `Token is expired` or `401`, stop and tell the user to re-aut
 ```
 ! glab auth login --hostname <hostname>
 ```
-Get `<hostname>` from `git remote -v` (e.g. `simgit.kamsoft.pl`).
+Get `<hostname>` from `git remote -v`.
 
 Do not continue until authentication is confirmed working.
 
 ## Step 2: Detect the GitLab project path
 
 Run `git remote -v` and extract the project path from the SSH or HTTPS remote URL:
-- `git@simgit.kamsoft.pl:wub/ks-microservices.git` → path: `wub/ks-microservices`
-- `https://gitlab.com/org/repo.git` → path: `org/repo`
+- `git@gitlab.com:org/repo.git` → path: `org/repo`
+- `https://gitlab.example.com/team/project.git` → path: `team/project`
 
 For API calls, URL-encode the path (replace `/` with `%2F`):
-- `wub/ks-microservices` → `wub%2Fks-microservices`
+- `org/repo` → `org%2Frepo`
 
 ## Step 3: Determine Linear team and project
 
@@ -97,7 +97,7 @@ Check labels first, then comment bodies. Use the highest-priority signal found.
 **Comment by <author name>:**
 <comment body>
 
-**Źródło:** GitLab #<id> (<author_username>)
+**Source:** GitLab #<id> (<author_username>)
 ```
 
 Skip the "Comment by" sections if there are no non-system comments.
@@ -128,8 +128,12 @@ Capture the new issue ID from each response, then run `linear issue link <newId>
 
 Print a summary table once all issues are created:
 
-| GitLab | Linear | Tytuł | Priorytet |
-|--------|--------|-------|-----------|
-| #10 | KAM-111 | ... | Medium |
+| GitLab | Linear | Title | Priority |
+|--------|--------|-------|----------|
+| #10 | TEAM-111 | ... | Medium |
 
 End with: "X issues imported successfully." If any failed, list them separately.
+
+## Customization
+
+To localize the output (other language) or hardcode site-specific defaults (a particular GitLab hostname, a fixed Linear team/project), create a wrapper skill that triggers on your context and tells the agent which overrides to apply on top of this one. The wrapper should delegate the actual procedure to this skill.

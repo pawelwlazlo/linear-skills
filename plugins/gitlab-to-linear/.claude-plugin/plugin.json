@@ -1,6 +1,6 @@
 {
   "name": "gitlab-to-linear",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Imports open issues from a GitLab project into Linear, preserving title, description, comments, priority, assignee, and a backlink to the original GitLab issue.",
   "author": {
     "name": "Paweł Wlazło",
